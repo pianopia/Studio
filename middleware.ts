@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { allowedIpSet } from "@/lib/env";
-import { getClientIp } from "@/lib/ip";
+import { getClientIp, normalizeIp } from "@/lib/ip";
 
 export function middleware(request: NextRequest) {
-  const ip = getClientIp(request);
+  const ip = normalizeIp(getClientIp(request));
   const bypass = process.env.NODE_ENV === "development" && !ip;
 
   if (bypass || allowedIpSet.has(ip)) {
