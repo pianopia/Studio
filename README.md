@@ -4,7 +4,7 @@ Next.js + TailwindCSS + Drizzle + Turso で構築した、Gemini + Remotion ベ�
 
 ## 機能
 
-- `.env` の `ALLOWED_IPS` による IP アドレス制限
+- `.env` の `ALLOWED_IPS` による IP アドレス制限（デフォルトでは `X-Forwarded-For` 等の偽装可能なヘッダーは無視。リバースプロキシ配下では `TRUST_PROXY=true` を設定）
 - サイドバー + チャット履歴 + チャットバブル UI
 - セッションはメモリ保持しつつ、Turso に履歴永続化
 - `google/genai` を使った Gemini 応答
